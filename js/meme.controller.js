@@ -16,7 +16,7 @@ function onInit() {
 
 function renderMeme() {
     const elImg = new Image()
-    elImg.src = 'img/1.jpg'
+    elImg.src = getMeme()
 
     elImg.onload = () => 
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
