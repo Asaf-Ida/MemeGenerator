@@ -9,28 +9,29 @@ function onInit() {
 
     resizeCanvas()
     renderMeme()
-    renderMemeText()
 
-    window.addEventListener('resize', () => resizeCanvas())
+    window.addEventListener('resize', resizeCanvas)
 }
 
 function renderMeme() {
     const elImg = new Image()
     elImg.src = getMeme()
 
-    elImg.onload = () => 
+    elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        renderMemeText()
+    }
 }
 
 function renderMemeText() {
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'orange'
-    gCtx.fillStyle = 'orange'
-    
+    // gCtx.lineWidth = 2
+    // gCtx.strokeStyle = 'blue'
+    // gCtx.fillStyle = 'orange'
+
     gCtx.font = '45px Arial'
-    
-    gCtx.fillText('I am stupid!', gElCanvas.width / 2, gElCanvas.height / 2)
-    gCtx.strokeText('I am stupid!', gElCanvas.width / 2, gElCanvas.height / 2)
+
+    gCtx.fillText('Add Text Here', 50, 50)
+    gCtx.strokeText('Add Text Here', 50, 50)
 }
 
 function resizeCanvas() {
