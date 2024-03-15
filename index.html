@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
     <title>Meme Generator App</title>
 </head>
 <body onload="onInit()">
     <section class="gallery-images">Test</section>
 
-    <section class="editor-meme">
+    <section class="editor-meme hidden">
         <div class="canvas-container">
             <canvas height="400" width="400"></canvas>
+        </div>
+        <div class="editor-btn-container">
+            <input type="text" value="Add Text Here" onchange="updateLineTxt(this.value)">
         </div>
     </section>
     
