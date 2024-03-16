@@ -9,9 +9,7 @@ function onInit() {
 
     console.log('canvas is ready')
 
-    resizeCanvas()
-
-    window.addEventListener('resize', resizeCanvas)
+    window.addEventListener('resize', renderMeme)
 }
 
 function renderMeme() {
@@ -21,7 +19,7 @@ function renderMeme() {
 
     const elImg = new Image()
     elImg.src = memeImg.url
-    
+
     resizeCanvas()
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
 
@@ -57,4 +55,10 @@ function updateLineTxt(newTxt) {
 function setSelectedImage(selectedImgId) {
     setImg(selectedImgId)
     renderMeme()
+}
+
+function onDownloadMeme(elLink) {
+    const dataUrl = gElCanvas.toDataURL()
+
+    elLink.href = dataUrl
 }

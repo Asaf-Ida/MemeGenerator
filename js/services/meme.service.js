@@ -21,11 +21,11 @@ _createImgs()
 
 function _createImgs() {
     gImgs = [
-        _createImg(['celeb', 'funny']),
+        _createImg(['celeb', 'funny', 'stupid']),
         _createImg(['dogs', 'cute']),
         _createImg(['dogs', 'cute', 'babies', 'sleeping']),
         _createImg(['cats', 'cute', 'sleeping']),
-        _createImg(['babies']),
+        _createImg(['babies', 'angry']),
         _createImg(['celeb', 'funny'])
     ]
 }
