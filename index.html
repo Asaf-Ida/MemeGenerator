@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/layout.css">
+    <script src="https://kit.fontawesome.com/b52ce551e9.js" crossorigin="anonymous"></script>
     <title>Meme Generator App</title>
 </head>
-<body onload="onInit()">
+<body class="main-layout" onload="onInit()">
+    <header class="header-content">
+        <div class="logo-title">
+            <i class="fa-regular fa-images pointer" onclick="onDisplayGallery()"></i>
+            <h1 class="title pointer" onclick="onDisplayGallery()">Meme Generator</h1>
+        </div>
+        <div class="main-nav">
+            <ul class="main-nav-list">
+                <li><a href="#" onclick="onDisplayGallery()">Gallery</a></li>
+                <li><a href="#">Saved</a></li>
+                <li><a href="#">Randomize</a></li>
+            </ul>
+        </div>
+    </header>
+
     <section class="gallery-images"></section>
 
     <section class="editor-meme hidden">
@@ -18,7 +33,6 @@
             <a href="#" onclick="onDownloadMeme(this)" download="Your-Meme">Download</a>
         </div>
     </section>
-    
     
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>

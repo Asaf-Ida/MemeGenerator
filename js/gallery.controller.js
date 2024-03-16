@@ -27,3 +27,8 @@ function toggleDisplay() {
     const elEditor = document.querySelector('.editor-meme')
     elEditor.classList.toggle('hidden')
 }
+
+function onDisplayGallery() {
+    const elGallery = document.querySelector('.gallery-images')
+    if (elGallery.classList.contains('hidden')) toggleDisplay()
+}
