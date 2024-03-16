@@ -29,8 +29,17 @@
             <canvas height="400" width="400"></canvas>
         </div>
         <div class="editor-btn-container">
-            <input type="text" value="Add Text Here" onchange="updateLineTxt(this.value)">
-            <a href="#" onclick="onDownloadMeme(this)" download="Your-Meme">Download</a>
+            <input type="text" class="line-text" value="Add Text Here" onchange="updateLineTxt(this.value)">
+            <div class="control-btn">
+                <button class="switch-lines"><i class="fa-light fa-arrows-up-down"></i></button>
+                <button class="add-lines"></button>
+                <button class="remove-lines"></button>
+            </div>
+            <div class="expand-links">
+                <a href="#" onclick="onSaveMeme(this)"><i class="fa-light fa-download"></i>Save</a>
+                <a href="#" onclick="onShareMeme(this)"><i class="fa-light fa-share"></i>Share</a>
+                <a href="#" onclick="onDownloadMeme(this)" download="Your-Meme"><i class="fa-light fa-floppy-disk"></i>Download</a>
+            </div>
         </div>
     </section>
     
