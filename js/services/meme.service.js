@@ -2,32 +2,49 @@
 
 let gImgs
 
-var gId = 0
+let gId = 0
 
-let gMeme = {
-    lineTxt: 'Add Text Here',
-    imgUrl: 'img/19.jpg'
+let gMeme = { 
+    selectedImgId: 1, 
+    selectedLineIdx: 0, 
+    lines: [
+        {   
+            id: 0,
+            txt: 'Add Text Here', 
+            size: 20, 
+            color: 'black' 
+        }
+    ] 
 }
 
-_createImages()
+_createImgs()
 
-function _createImages() {
+function _createImgs() {
     gImgs = [
-        _createImage(['celeb', 'funny']),
-        _createImage(['dogs', 'cute']),
-        _createImage(['dogs', 'cute', 'babies', 'sleeping']),
-        _createImage(['cats', 'cute', 'sleeping']),
-        _createImage(['babies']),
-        _createImage(['celeb', 'funny'])
+        _createImg(['celeb', 'funny']),
+        _createImg(['dogs', 'cute']),
+        _createImg(['dogs', 'cute', 'babies', 'sleeping']),
+        _createImg(['cats', 'cute', 'sleeping']),
+        _createImg(['babies']),
+        _createImg(['celeb', 'funny'])
     ]
 }
 
-function _createImage(keywords) {
+function _createImg(keywords) {
     return {
-        id: ++gId, 
+        id: ++gId,
         url: 'img/' + gId + '.jpg',
         keywords
     }
+}
+
+function getImg(imgId) {
+    return gImgs.find(img => img.id === imgId)
+}
+
+function getLine(lineId) {
+    const lines = gMeme.lines
+    return lines.find(line => line.id === lineId)
 }
 
 function getMeme() {
@@ -39,6 +56,6 @@ function setImg(imgUrlSelected) {
     gMeme.imgUrl = imgUrlSelected
 }
 
-function setLineTxt(newTxt) {
-    gMeme.lineTxt = newTxt
+function setLineTxt(selectedLineIdx, newTxt) {
+    gMeme.lines[selectedLineIdx].txt = newTxt
 }

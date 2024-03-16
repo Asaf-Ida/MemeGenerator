@@ -15,13 +15,15 @@ function onInit() {
 
 function renderMeme() {
     const meme = getMeme()
+    const memeImg = getImg(meme.selectedImgId)
+    const memeLine = getLine(meme.selectedLineIdx)
 
     const elImg = new Image()
-    elImg.src = meme.imgUrl
+    elImg.src = memeImg.url
 
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        renderMemeText(meme.lineTxt)
+        renderMemeText(memeLine.txt)
     }
 }
 
@@ -43,6 +45,12 @@ function resizeCanvas() {
 }
 
 function updateLineTxt(newTxt) {
-    setLineTxt(newTxt)
+    const meme = getMeme()
+    setLineTxt(meme.selectedLineIdx, newTxt)
+    renderMeme()
+}
+
+function setSelectedImage(imgUrlSelected) {
+    setImg(imgUrlSelected)
     renderMeme()
 }
