@@ -6,11 +6,29 @@ body {
     background-color: darkslategray;
 }
 
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1000px 1fr;
+}
+
+* :not(img) {
+    grid-column: 2;
+}
+
+.gallery-images {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+}
+
+img {
+    width: 100%;
+}
+
 .editor-meme {
     display: flex;
-    margin-block-start: 200px;
-    margin-inline-start: 300px;
-    gap: 30px;
+    margin: 0 auto;
+    gap: 2em;
 }
 
 .canvas-container {
@@ -20,5 +38,6 @@ body {
 }
 
 .editor-btn-container {
+    width: 400px;
     background-color:steelblue;
 }
