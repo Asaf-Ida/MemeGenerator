@@ -7,8 +7,9 @@ function onInit() {
     gElCanvas = document.querySelector('.editor-meme canvas')
     gCtx = gElCanvas.getContext('2d')
 
+    console.log('canvas is ready')
+
     resizeCanvas()
-    renderMeme()
 
     window.addEventListener('resize', resizeCanvas)
 }
@@ -20,6 +21,9 @@ function renderMeme() {
 
     const elImg = new Image()
     elImg.src = memeImg.url
+    
+    resizeCanvas()
+    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
 
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -50,7 +54,7 @@ function updateLineTxt(newTxt) {
     renderMeme()
 }
 
-function setSelectedImage(imgUrlSelected) {
-    setImg(imgUrlSelected)
+function setSelectedImage(selectedImgId) {
+    setImg(selectedImgId)
     renderMeme()
 }

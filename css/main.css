@@ -3,18 +3,22 @@
 }
 
 body {
-    background-color: #eee;
+    background-color: darkslategray;
 }
 
-canvas {
-    background-color: white;
-    border: 1px solid lightgray;
+.editor-meme {
+    display: flex;
+    margin-block-start: 200px;
+    margin-inline-start: 300px;
+    gap: 30px;
 }
 
 .canvas-container {
     width: 30vw;
     border: 1px solid lightgray;
+    background-color: white;
+}
 
-    margin-block-start: 200px;
-    margin-inline-start: 300px;
+.editor-btn-container {
+    background-color:steelblue;
 }

@@ -51,11 +51,14 @@ function getMeme() {
     return gMeme
 }
 
-function setImg(imgUrlSelected) {
-    console.log(gImgs)
-    gMeme.imgUrl = imgUrlSelected
+function getImgs() {
+    return gImgs
 }
 
 function setLineTxt(selectedLineIdx, newTxt) {
     gMeme.lines[selectedLineIdx].txt = newTxt
+}
+
+function setImg(selectedImgId) {
+    gMeme.selectedImgId = +selectedImgId
 }
