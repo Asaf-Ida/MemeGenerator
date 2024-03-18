@@ -25,6 +25,24 @@ img {
     width: 100%;
 }
 
+button {
+    font-size: 1.25em;
+    padding-block: .5em;
+    padding-inline: 0.75em;
+    
+    border: 0;
+    border-radius: 0.8em;
+
+    color: whitesmoke;
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
 .editor-meme {
     display: flex;
     margin: 0 auto;
@@ -38,8 +56,10 @@ img {
 }
 
 .editor-btn-container {
+    width: 500px;
     background-color:steelblue;
     padding: 30px;
+    border-radius: 3em;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -51,15 +71,128 @@ img {
     padding-inline-start: 3em;
     border-radius: 3em;
     background-color: whitesmoke; 
+    border: 0;
 
     font-size: 1.5em;
 }
 
+.control-lines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .25em;
+}
+
+.control-lines button {
+    border-radius: 0.4em;
+    height: 2.5em;
+    flex-basis: 2.5em;
+}
+
+.control-lines button:first-child {
+    background-color: rgb(15, 203, 236);
+}
+
+.control-lines button:nth-child(2) {
+    background-color: rgb(15, 242, 15);
+}
+
+.control-lines button:last-child {
+    background-color: rgb(210, 31, 31);
+}
+
+.control-text {
+    padding: 1em;
+    background-color: cadetblue;
+    border-radius: 1em;
+
+    display: grid;
+    gap: .75em;
+    row-gap: 1.5em;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.control-text button {
+    width: 3em;
+    height: 3em;
+    color: black;
+
+    border-radius: .5em;
+
+    font-size: 1.25em;
+}
+
+.control-text select {
+    height: 60px;
+    border: 1px solid black;
+    border-radius: .5em;
+
+    font-size: 1.25em;
+}
+
+.item1 {
+    grid-column: 1;
+}
+
+.item2 {
+    grid-column: 2;
+}
+
+.item2 i {
+    padding-inline-end: .15em;
+}
+
+.item3 {
+    grid-column: 3;
+}
+
+.item4 {
+    grid-column: 4;
+}
+
+.item5 {
+    grid-column: 5;
+}
+
+.item6 {
+    grid-area: 2 / 1 / 3 / 4 ;
+}
+
+.item7 {
+    grid-column: 4;
+}
+
+.item8 {
+    grid-column: 5;
+}
+
 .expand-links {
     grid-row: 4;
-    height: 2em;
 
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.expand-links button > a {
+    text-decoration: none;
+
+    color: whitesmoke;
+}
+
+.expand-links button i {
+    padding-inline-end: 0.75em;
+}
+
+.expand-links button:first-child {
+    background-color: rgb(28, 63, 221);
+}
+
+.expand-links button:nth-child(2) {
+    background-color: rgb(37, 198, 37);
+}
+
+.expand-links button:last-child {
+    background-color: rgb(121, 42, 194);
 }

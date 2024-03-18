@@ -30,15 +30,38 @@
         </div>
         <div class="editor-btn-container">
             <input type="text" class="line-text" value="Add Text Here" onchange="updateLineTxt(this.value)">
-            <div class="control-btn">
-                <button class="switch-lines"><i class="fa-light fa-arrows-up-down"></i></button>
-                <button class="add-lines"></button>
-                <button class="remove-lines"></button>
+            
+            <div class="control-lines">
+                <button class="switch-lines"><i class="fa-solid fa-arrows-up-down"></i></button>
+                <button class="add-lines"><i class="fa-solid fa-plus"></i></button>
+                <button class="remove-lines"><i class="fa-solid fa-trash"></i></button>
             </div>
+
+            <div class="control-text">
+                    <button class="item1"><i class="fa-solid fa-font"></i></i>+</button>
+                    <button class="item2"><i class="fa-solid fa-font"></i></i>-</button>
+                    <button class="item3"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="item4"><i class="fa-solid fa-align-center"></i></button>
+                    <button class="item5"><i class="fa-solid fa-align-right"></i></button>
+                    <select class="item6" name="" id="">
+                        <option value="">IMPACT</option>
+                        <option value="">ARIAL</option>
+                        <option value="">GEORGIA</option>
+                    </select>
+                    <button class="item7"><i class="fa-solid fa-brush"></i></button>
+                    <button class="item8"><i class="fa-solid fa-fill-drip"></i></button>
+            </div>
+
             <div class="expand-links">
-                <a href="#" onclick="onSaveMeme(this)"><i class="fa-light fa-download"></i>Save</a>
-                <a href="#" onclick="onShareMeme(this)"><i class="fa-light fa-share"></i>Share</a>
-                <a href="#" onclick="onDownloadMeme(this)" download="Your-Meme"><i class="fa-light fa-floppy-disk"></i>Download</a>
+                <button  onclick="onSaveMeme(this)">
+                    <i class="fa-solid fa-download"></i>Save
+                </button>
+                <button onclick="onShareMeme(this)">
+                    <i class="fa-solid fa-share"></i>Share
+                </button>
+                <button>
+                    <a href="#" onclick="onDownloadMeme(this)" download="Your-Meme"><i class="fa-solid fa-floppy-disk"></i>Download</a>
+                </button>
             </div>
         </div>
     </section>
