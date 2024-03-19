@@ -34,7 +34,7 @@ function renderMemeText(line) {
     gCtx.strokeStyle = line.strokeColor
     gCtx.fillStyle = line.fillColor
 
-    gCtx.font = '45px Arial'
+    gCtx.font = line.size + 'px Arial'
 
     gCtx.fillText(line.txt, 50, 50)
     gCtx.strokeText(line.txt, 50, 50)
@@ -76,5 +76,11 @@ function onSetFillColor(elInput) {
 
     const meme = getMeme()
     setFillColor(meme.selectedLineIdx, fillColor)
+    renderMeme()
+}
+
+function onChangeFontSize(fontChange) {
+    const meme = getMeme()
+    changeFontSize(meme.selectedLineIdx, fontChange)
     renderMeme()
 }

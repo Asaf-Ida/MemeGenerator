@@ -11,7 +11,7 @@ let gMeme = {
         {   
             id: 0,
             txt: 'Add Text Here', 
-            size: 20, 
+            size: 30, 
             strokeColor: 'black',
             fillColor: 'white' 
         }
@@ -70,4 +70,8 @@ function setStrokeColor(selectedLineIdx, newStrokeColor) {
 
 function setFillColor(selectedLineIdx, newFillColor) {
     gMeme.lines[selectedLineIdx].fillColor = newFillColor
+}
+
+function changeFontSize(selectedLineIdx, fontChange) {
+    gMeme.lines[selectedLineIdx].size += fontChange
 }

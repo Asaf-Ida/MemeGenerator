@@ -32,18 +32,18 @@
             <input type="text" class="line-text" value="Add Text Here" onchange="updateLineTxt(this.value)">
             
             <div class="control-lines">
-                <button class="switch-lines"><i class="fa-solid fa-arrows-up-down"></i></button>
-                <button class="add-lines"><i class="fa-solid fa-plus"></i></button>
-                <button class="remove-lines"><i class="fa-solid fa-trash"></i></button>
+                <button class="switch-lines" title="Switch Lines"><i class="fa-solid fa-arrows-up-down"></i></button>
+                <button class="add-lines" title="Add Line"><i class="fa-solid fa-plus"></i></button>
+                <button class="remove-lines" title="Remove Line"><i class="fa-solid fa-trash"></i></button>
             </div>
 
             <div class="control-text">
-                    <button class="item1"><i class="fa-solid fa-font"></i></i>+</button>
-                    <button class="item2"><i class="fa-solid fa-font"></i></i>-</button>
-                    <button class="item3"><i class="fa-solid fa-align-left"></i></button>
-                    <button class="item4"><i class="fa-solid fa-align-center"></i></button>
-                    <button class="item5"><i class="fa-solid fa-align-right"></i></button>
-                    <select class="item6" name="" id="">
+                    <button class="item1" title="Increase Font Size" onclick="onChangeFontSize(5)"><i class="fa-solid fa-font"></i></i>+</button>
+                    <button class="item2" title="Decrease Font Size" onclick="onChangeFontSize(-5)"><i class="fa-solid fa-font"></i></i>-</button>
+                    <button class="item3" title="Align Left"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="item4" title="Align Center"><i class="fa-solid fa-align-center"></i></button>
+                    <button class="item5" title="Align Right"><i class="fa-solid fa-align-right"></i></button>
+                    <select class="item6" title="Font Style">
                         <option value="">IMPACT</option>
                         <option value="">ARIAL</option>
                         <option value="">GEORGIA</option>
@@ -57,13 +57,13 @@
             </div>
 
             <div class="expand-links">
-                <button  onclick="onSaveMeme(this)">
+                <button title="Save Meme" onclick="onSaveMeme(this)">
                     <i class="fa-solid fa-download"></i>Save
                 </button>
-                <button onclick="onShareMeme(this)">
+                <button title="Share Meme" onclick="onShareMeme(this)">
                     <i class="fa-solid fa-share"></i>Share
                 </button>
-                <button>
+                <button title="Download Meme">
                     <a href="#" onclick="onDownloadMeme(this)" download="Your-Meme"><i class="fa-solid fa-floppy-disk"></i>Download</a>
                 </button>
             </div>
