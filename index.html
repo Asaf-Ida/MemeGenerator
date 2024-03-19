@@ -48,8 +48,12 @@
                         <option value="">ARIAL</option>
                         <option value="">GEORGIA</option>
                     </select>
-                    <button class="item7"><i class="fa-solid fa-brush"></i></button>
-                    <button class="item8"><i class="fa-solid fa-fill-drip"></i></button>
+                    <button class="item7" title="Stroke Color"><i class="fa-solid fa-brush"></i>
+                        <input type="color" onchange="onSetStrokeColor(this)"/>
+                    </button>
+                    <button class="item8" title="Fill Color"><i class="fa-solid fa-fill-drip"></i>
+                        <input type="color" value="#ffffff" onchange="onSetFillColor(this)"/>
+                    </button>
             </div>
 
             <div class="expand-links">
