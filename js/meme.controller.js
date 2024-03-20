@@ -15,17 +15,20 @@ function onInit() {
 function renderMeme() {
     const meme = getMeme()
     const memeImg = getImg(meme.selectedImgId)
-    const memeLine = getLine(meme.selectedLineIdx)
-
+    
     const elImg = new Image()
     elImg.src = memeImg.url
-
+    
     resizeCanvas()
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-
+    
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        renderMemeText(memeLine)
+
+        for (let i = 0; i < meme.lines.length; i++) {
+            const memeLine = getLine(i)
+            renderMemeText(memeLine)
+        }
     }
 }
 
@@ -34,10 +37,10 @@ function renderMemeText(line) {
     gCtx.strokeStyle = line.strokeColor
     gCtx.fillStyle = line.fillColor
 
-    gCtx.font = line.size + 'px Arial'
+    gCtx.font = line.size + 'px ' + line.fontStyle
 
-    gCtx.fillText(line.txt, 50, 50)
-    gCtx.strokeText(line.txt, 50, 50)
+    gCtx.fillText(line.txt, line.positionX, line.positionY)
+    gCtx.strokeText(line.txt, line.positionX, line.positionY)
 }
 
 function resizeCanvas() {
@@ -82,5 +85,21 @@ function onSetFillColor(elInput) {
 function onChangeFontSize(fontChange) {
     const meme = getMeme()
     changeFontSize(meme.selectedLineIdx, fontChange)
+    renderMeme()
+}
+
+function onAddingLine() {
+    const elSelect = document.querySelector('.control-text select')
+    elSelect.selectedIndex = null
+
+    createLine()
+    renderMeme()
+}
+
+function onChangeFontStyle(elSelect) {
+    console.log(elSelect.value)
+
+    const meme = getMeme()
+    changeFontStyle(meme.selectedLineIdx, elSelect.value)
     renderMeme()
 }

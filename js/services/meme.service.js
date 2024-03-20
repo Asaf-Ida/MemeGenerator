@@ -2,23 +2,43 @@
 
 let gImgs
 
-let gId = 0
+let gIdImg = 0
 
-let gMeme = { 
-    selectedImgId: 1, 
-    selectedLineIdx: 0, 
+let gIdLine = 0
+
+let gMeme = {
+    selectedImgId: 1,
+    selectedLineIdx: 0,
     lines: [
-        {   
+        {
             id: 0,
-            txt: 'Add Text Here', 
-            size: 30, 
+            txt: 'Add Text Here',
+            size: 30,
             strokeColor: 'black',
-            fillColor: 'white' 
+            fillColor: 'white',
+            fontStyle: 'Impact',
+            positionX: 150,
+            positionY: 30
         }
-    ] 
+    ]
 }
 
 _createImgs()
+
+function createLine() {
+    const line = {
+        id: ++gIdLine,
+        txt: 'Add Text Here',
+        size: 30,
+        strokeColor: 'black',
+        fillColor: 'white',
+        fontStyle: 'Impact',
+        positionX: 150,
+        positionY: 100 * gIdLine
+    }
+    gMeme.lines.push(line)
+    gMeme.selectedLineIdx++
+}
 
 function _createImgs() {
     gImgs = [
@@ -33,8 +53,8 @@ function _createImgs() {
 
 function _createImg(keywords) {
     return {
-        id: ++gId,
-        url: 'img/' + gId + '.jpg',
+        id: ++gIdImg,
+        url: 'img/' + gIdImg + '.jpg',
         keywords
     }
 }
@@ -74,4 +94,8 @@ function setFillColor(selectedLineIdx, newFillColor) {
 
 function changeFontSize(selectedLineIdx, fontChange) {
     gMeme.lines[selectedLineIdx].size += fontChange
+}
+
+function changeFontStyle(selectedLineIdx, fontStyleNew) {
+    gMeme.lines[selectedLineIdx].fontStyle = fontStyleNew
 }

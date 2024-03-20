@@ -33,7 +33,7 @@
             
             <div class="control-lines">
                 <button class="switch-lines" title="Switch Lines"><i class="fa-solid fa-arrows-up-down"></i></button>
-                <button class="add-lines" title="Add Line"><i class="fa-solid fa-plus"></i></button>
+                <button class="add-lines" title="Add Line" onclick="onAddingLine()"><i class="fa-solid fa-plus"></i></button>
                 <button class="remove-lines" title="Remove Line"><i class="fa-solid fa-trash"></i></button>
             </div>
 
@@ -43,10 +43,12 @@
                     <button class="item3" title="Align Left"><i class="fa-solid fa-align-left"></i></button>
                     <button class="item4" title="Align Center"><i class="fa-solid fa-align-center"></i></button>
                     <button class="item5" title="Align Right"><i class="fa-solid fa-align-right"></i></button>
-                    <select class="item6" title="Font Style">
-                        <option value="">IMPACT</option>
-                        <option value="">ARIAL</option>
-                        <option value="">GEORGIA</option>
+                    <select class="item6" title="Font Style" onchange="onChangeFontStyle(this)">
+                        <option value="Impact">IMPACT</option>
+                        <option value="Arial">ARIAL</option>
+                        <option value="Verdana">VERDANA</option>
+                        <option value="Tahoma">TAHOMA</option>
+                        <option value="Georgia">GEORGIA</option>
                     </select>
                     <button class="item7" title="Stroke Color"><i class="fa-solid fa-brush"></i>
                         <input type="color" onchange="onSetStrokeColor(this)"/>
