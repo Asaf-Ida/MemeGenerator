@@ -154,6 +154,18 @@ function onAlignTextRight() {
     renderMeme()
 }
 
+function onPositionTextUp() {
+    const meme = getMeme()
+    positionTextUp(meme.selectedLineIdx)
+    renderMeme()
+}
+
+function onPositionTextDown() {
+    const meme = getMeme()
+    positionTextDown(meme.selectedLineIdx)
+    renderMeme()
+}
+
 function calcPositionX(lineAlignment) {
     var positionX
     switch (lineAlignment) {

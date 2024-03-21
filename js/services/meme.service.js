@@ -123,3 +123,11 @@ function alignTextCenter(selectedLineIdx) {
 function alignTextRight(selectedLineIdx) {
     gMeme.lines[selectedLineIdx].txtAlign = 'right'
 }
+
+function positionTextUp(selectedLineIdx) {
+    gMeme.lines[selectedLineIdx].positionY -= 20
+}
+
+function positionTextDown(selectedLineIdx) {
+    gMeme.lines[selectedLineIdx].positionY += 20
+}

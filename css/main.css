@@ -90,10 +90,18 @@ button:hover {
 }
 
 .control-lines button:first-child {
-    background-color: rgb(15, 203, 236);
+    background-color: rgb(224, 227, 22);
 }
 
 .control-lines button:nth-child(2) {
+    background-color: rgb(224, 227, 22);
+}
+
+.control-lines button:nth-child(3) {
+    background-color: rgb(15, 203, 236);
+}
+
+.control-lines button:nth-child(4) {
     background-color: rgb(15, 242, 15);
 }
 
