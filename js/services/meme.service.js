@@ -24,7 +24,8 @@ function createDefaultMeme() {
                 strokeColor: 'black',
                 fillColor: 'white',
                 fontStyle: 'Impact',
-                positionX: 150,
+                txtAlign: 'center',
+                // positionX: 140,
                 positionY: 50
             }
         ]
@@ -39,7 +40,8 @@ function createLine() {
         strokeColor: 'black',
         fillColor: 'white',
         fontStyle: 'Impact',
-        positionX: 150,
+        txtAlign: 'center',
+        // positionX: 140,
         positionY: 50 + (70 * gIdLine)
     }
     gMeme.lines.push(line)
@@ -108,4 +110,16 @@ function changeFontStyle(selectedLineIdx, fontStyleNew) {
 
 function SwitchLine() {
     gMeme.selectedLineIdx === gMeme.lines.length - 1 ? gMeme.selectedLineIdx = 0 : gMeme.selectedLineIdx++
+}
+
+function alignTextLeft(selectedLineIdx) {
+    gMeme.lines[selectedLineIdx].txtAlign = 'left'
+}
+
+function alignTextCenter(selectedLineIdx) {
+    gMeme.lines[selectedLineIdx].txtAlign = 'center'
+}
+
+function alignTextRight(selectedLineIdx) {
+    gMeme.lines[selectedLineIdx].txtAlign = 'right'
 }

@@ -42,7 +42,9 @@ function renderMeme() {
 function drawFrame(currLine) {
     gCtx.strokeStyle = 'black'
     gCtx.lineWidth = 4
-    gCtx.strokeRect(currLine.positionX - 10, currLine.positionY - currLine.fontSize, 200, currLine.fontSize + 10)
+
+    const positionX = calcPositionX(currLine.txtAlign)
+    gCtx.strokeRect(positionX - 10, currLine.positionY - currLine.fontSize, 200, currLine.fontSize + 10)
 }
 
 function renderEditorDisplay(currLine) {
@@ -60,8 +62,10 @@ function renderMemeText(line) {
 
     gCtx.font = line.fontSize + 'px ' + line.fontStyle
 
-    gCtx.fillText(line.txt, line.positionX, line.positionY)
-    gCtx.strokeText(line.txt, line.positionX, line.positionY)
+    const positionX = calcPositionX(line.txtAlign)
+
+    gCtx.fillText(line.txt, positionX, line.positionY)
+    gCtx.strokeText(line.txt, positionX, line.positionY)
 }
 
 function resizeCanvas() {
@@ -130,4 +134,38 @@ function onChangeFontStyle(elSelect) {
 function onSwitchLine() {
     SwitchLine()
     renderMeme()
+}
+
+function onAlignTextLeft() {
+    const meme = getMeme()
+    alignTextLeft(meme.selectedLineIdx)
+    renderMeme()
+}
+
+function onAlignTextCenter() {
+    const meme = getMeme()
+    alignTextCenter(meme.selectedLineIdx)
+    renderMeme()
+}
+
+function onAlignTextRight() {
+    const meme = getMeme()
+    alignTextRight(meme.selectedLineIdx)
+    renderMeme()
+}
+
+function calcPositionX(lineAlignment) {
+    var positionX
+    switch (lineAlignment) {
+        case 'left':
+            positionX = 20
+            break;
+        case 'center':
+            positionX = (gElCanvas.width / 2) - 100
+            break
+        case 'right':
+            positionX = gElCanvas.width - 150
+            break
+    }
+    return positionX
 }
