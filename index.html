@@ -29,10 +29,10 @@
             <canvas height="400" width="400"></canvas>
         </div>
         <div class="editor-btn-container">
-            <input type="text" class="line-text" value="Add Text Here" onchange="updateLineTxt(this.value)">
+            <input type="text" class="line-text" value="Add Text Here" oninput="updateLineTxt(this.value)">
             
             <div class="control-lines">
-                <button class="switch-lines" title="Switch Lines"><i class="fa-solid fa-arrows-up-down"></i></button>
+                <button class="switch-lines" title="Switch Lines" onclick="onSwitchLine()"><i class="fa-solid fa-arrows-up-down"></i></button>
                 <button class="add-lines" title="Add Line" onclick="onAddingLine()"><i class="fa-solid fa-plus"></i></button>
                 <button class="remove-lines" title="Remove Line"><i class="fa-solid fa-trash"></i></button>
             </div>

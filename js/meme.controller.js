@@ -14,8 +14,10 @@ function onInit() {
 
 function renderMeme() {
     const meme = getMeme()
-    const memeImg = getImg(meme.selectedImgId)
+    const currLine = meme.lines[meme.selectedLineIdx]
+    renderEditorDisplay(currLine)
     
+    const memeImg = getImg(meme.selectedImgId)
     const elImg = new Image()
     elImg.src = memeImg.url
     
@@ -32,12 +34,20 @@ function renderMeme() {
     }
 }
 
+function renderEditorDisplay(currMeme) {
+    const elInput = document.querySelector('.line-text')
+    elInput.value = currMeme.txt
+
+    const elSelect = document.querySelector('.control-text select')
+    elSelect.value = currMeme.fontStyle
+}
+
 function renderMemeText(line) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = line.strokeColor
     gCtx.fillStyle = line.fillColor
 
-    gCtx.font = line.size + 'px ' + line.fontStyle
+    gCtx.font = line.fontSize + 'px ' + line.fontStyle
 
     gCtx.fillText(line.txt, line.positionX, line.positionY)
     gCtx.strokeText(line.txt, line.positionX, line.positionY)
@@ -89,6 +99,9 @@ function onChangeFontSize(fontChange) {
 }
 
 function onAddingLine() {
+    const elInput = document.querySelector('.line-text')
+    elInput.value = 'Add Text Here'
+
     const elSelect = document.querySelector('.control-text select')
     elSelect.selectedIndex = null
 
@@ -97,9 +110,12 @@ function onAddingLine() {
 }
 
 function onChangeFontStyle(elSelect) {
-    console.log(elSelect.value)
-
     const meme = getMeme()
     changeFontStyle(meme.selectedLineIdx, elSelect.value)
+    renderMeme()
+}
+
+function onSwitchLine() {
+    SwitchLine()
     renderMeme()
 }

@@ -13,7 +13,7 @@ let gMeme = {
         {
             id: 0,
             txt: 'Add Text Here',
-            size: 30,
+            fontSize: 30,
             strokeColor: 'black',
             fillColor: 'white',
             fontStyle: 'Impact',
@@ -29,7 +29,7 @@ function createLine() {
     const line = {
         id: ++gIdLine,
         txt: 'Add Text Here',
-        size: 30,
+        fontSize: 30,
         strokeColor: 'black',
         fillColor: 'white',
         fontStyle: 'Impact',
@@ -37,7 +37,7 @@ function createLine() {
         positionY: 100 * gIdLine
     }
     gMeme.lines.push(line)
-    gMeme.selectedLineIdx++
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function _createImgs() {
@@ -93,9 +93,13 @@ function setFillColor(selectedLineIdx, newFillColor) {
 }
 
 function changeFontSize(selectedLineIdx, fontChange) {
-    gMeme.lines[selectedLineIdx].size += fontChange
+    gMeme.lines[selectedLineIdx].fontSize += fontChange
 }
 
 function changeFontStyle(selectedLineIdx, fontStyleNew) {
     gMeme.lines[selectedLineIdx].fontStyle = fontStyleNew
+}
+
+function SwitchLine() {
+    gMeme.selectedLineIdx === gMeme.lines.length - 1 ? gMeme.selectedLineIdx = 0 : gMeme.selectedLineIdx++
 }
