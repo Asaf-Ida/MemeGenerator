@@ -25,7 +25,7 @@
     <section class="gallery-images"></section>
 
     <section class="editor-meme hidden">
-        <div class="canvas-container">
+        <div class="canvas-container" onclick="onSelectLine(event)">
             <canvas height="400" width="400"></canvas>
         </div>
         <div class="editor-btn-container">
@@ -36,7 +36,7 @@
                 <button class="position-down" title="Position Down" onclick="onPositionTextDown()"><i class="fa-solid fa-arrow-down"></i></button>
                 <button class="switch-lines" title="Switch Lines" onclick="onSwitchLine()"><i class="fa-solid fa-arrows-up-down"></i></button>
                 <button class="add-lines" title="Add Line" onclick="onAddingLine()"><i class="fa-solid fa-plus"></i></button>
-                <button class="remove-lines" title="Remove Line"><i class="fa-solid fa-trash"></i></button>
+                <button class="remove-lines" title="Remove Line" onclick="onRemoveLine()"><i class="fa-solid fa-trash"></i></button>
             </div>
 
             <div class="control-text">

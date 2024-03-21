@@ -20,14 +20,14 @@ function renderMeme() {
     const meme = getMeme()
     const currLine = meme.lines[meme.selectedLineIdx]
     renderEditorDisplay(currLine)
-    
+
     const memeImg = getImg(meme.selectedImgId)
     const elImg = new Image()
     elImg.src = memeImg.url
-    
+
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     resizeCanvas()
-    
+
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
@@ -44,7 +44,16 @@ function drawFrame(currLine) {
     gCtx.lineWidth = 4
 
     const positionX = calcPositionX(currLine.txtAlign)
-    gCtx.strokeRect(positionX - 10, currLine.positionY - currLine.fontSize, 200, currLine.fontSize + 10)
+
+    const originX = positionX - 10
+    const originY = currLine.positionY - currLine.fontSize
+    const lineWidth = gCtx.measureText(currLine.txt).width + currLine.fontSize - 10
+    const lineHeight = currLine.fontSize + 10
+
+    gCtx.strokeRect(originX, originY, lineWidth, lineHeight)
+
+    const meme = getMeme()
+    updateMemeSize(meme.selectedLineIdx, originX, originY, lineWidth, lineHeight)
 }
 
 function renderEditorDisplay(currLine) {
@@ -180,4 +189,21 @@ function calcPositionX(lineAlignment) {
             break
     }
     return positionX
+}
+
+function onRemoveLine() {
+    const meme = getMeme()
+    removeLine(meme.selectedLineIdx)
+    renderMeme()
+}
+
+
+// to be continued...
+function onSelectLine(ev) {
+    const { offsetX, offsetY } = ev
+    console.log(offsetX)
+    console.log(offsetY)
+
+    checkSelectLine(offsetX, offsetY)
+    renderMeme()
 }

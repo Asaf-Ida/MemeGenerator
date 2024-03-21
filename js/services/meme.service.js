@@ -18,7 +18,7 @@ function createDefaultMeme() {
         selectedLineIdx: 0,
         lines: [
             {
-                id: gIdLine,
+                id: gIdLine++,
                 txt: 'Add Text Here',
                 fontSize: 30,
                 strokeColor: 'black',
@@ -34,7 +34,7 @@ function createDefaultMeme() {
 
 function createLine() {
     const line = {
-        id: ++gIdLine,
+        id: gIdLine++,
         txt: 'Add Text Here',
         fontSize: 30,
         strokeColor: 'black',
@@ -42,7 +42,7 @@ function createLine() {
         fontStyle: 'Impact',
         txtAlign: 'center',
         // positionX: 140,
-        positionY: 50 + (70 * gIdLine)
+        positionY: 50 + (70 * (gIdLine - 1))
     }
     gMeme.lines.push(line)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -130,4 +130,31 @@ function positionTextUp(selectedLineIdx) {
 
 function positionTextDown(selectedLineIdx) {
     gMeme.lines[selectedLineIdx].positionY += 20
+}
+
+function removeLine(selectedLineIdx) {
+    if (gMeme.lines.length === 1) return
+
+    gMeme.lines.splice(selectedLineIdx, 1)
+    gIdLine = 0
+    gMeme.lines.forEach(line => line.id = gIdLine++)
+
+    if (selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
+}
+
+function updateMemeSize(selectedLineIdx, originX, originY, lineWidth, lineHeight) {
+    gMeme.lines[selectedLineIdx].size = {
+        originX,
+        originY,
+        lineWidth,
+        lineHeight
+    }
+}
+
+function checkSelectLine(offsetX, offsetY) {
+    gMeme.lines.forEach(line => {
+        if (offsetX > line.size.originX && offsetX < line.size.lineWidth && offsetY > line.size.originY && offsetY < line.size.lineHeight) {
+                gMeme.selectedLineIdx = line.id
+            }
+    })
 }
