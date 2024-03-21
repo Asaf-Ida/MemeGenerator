@@ -14,10 +14,12 @@ function renderGallery() {
 }
 
 function onImgSelect(imgSelected) {
+    resetMeme()
     toggleDisplay()
-
+    
     const selectedImgId = imgSelected.dataset.id
     setSelectedImage(selectedImgId)
+
 }
 
 function toggleDisplay() {

@@ -12,6 +12,10 @@ function onInit() {
     window.addEventListener('resize', renderMeme)
 }
 
+function resetMeme() {
+    createDefaultMeme()
+}
+
 function renderMeme() {
     const meme = getMeme()
     const currLine = meme.lines[meme.selectedLineIdx]
@@ -21,25 +25,32 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = memeImg.url
     
-    resizeCanvas()
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+    resizeCanvas()
     
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        for (let i = 0; i < meme.lines.length; i++) {
+        for (var i = 0; i < meme.lines.length; i++) {
             const memeLine = getLine(i)
             renderMemeText(memeLine)
         }
+        drawFrame(currLine)
     }
 }
 
-function renderEditorDisplay(currMeme) {
+function drawFrame(currLine) {
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 4
+    gCtx.strokeRect(currLine.positionX - 10, currLine.positionY - currLine.fontSize, 200, currLine.fontSize + 10)
+}
+
+function renderEditorDisplay(currLine) {
     const elInput = document.querySelector('.line-text')
-    elInput.value = currMeme.txt
+    elInput.value = currLine.txt
 
     const elSelect = document.querySelector('.control-text select')
-    elSelect.value = currMeme.fontStyle
+    elSelect.value = currLine.fontStyle
 }
 
 function renderMemeText(line) {
@@ -57,6 +68,7 @@ function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
 
     gElCanvas.width = elContainer.clientWidth
+    gElCanvas.height = elContainer.clientHeight
 }
 
 function updateLineTxt(newTxt) {

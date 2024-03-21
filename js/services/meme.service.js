@@ -1,29 +1,35 @@
 'use strict'
 
-let gImgs
-
 let gIdImg = 0
 
-let gIdLine = 0
+let gImgs
 
-let gMeme = {
-    selectedImgId: 1,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            id: 0,
-            txt: 'Add Text Here',
-            fontSize: 30,
-            strokeColor: 'black',
-            fillColor: 'white',
-            fontStyle: 'Impact',
-            positionX: 150,
-            positionY: 30
-        }
-    ]
-}
+let gIdLine
+
+let gMeme
 
 _createImgs()
+
+function createDefaultMeme() {
+    gIdLine = 0
+
+    gMeme = {
+        selectedImgId: 1,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                id: gIdLine,
+                txt: 'Add Text Here',
+                fontSize: 30,
+                strokeColor: 'black',
+                fillColor: 'white',
+                fontStyle: 'Impact',
+                positionX: 150,
+                positionY: 50
+            }
+        ]
+    }
+}
 
 function createLine() {
     const line = {
@@ -34,7 +40,7 @@ function createLine() {
         fillColor: 'white',
         fontStyle: 'Impact',
         positionX: 150,
-        positionY: 100 * gIdLine
+        positionY: 50 + (70 * gIdLine)
     }
     gMeme.lines.push(line)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
