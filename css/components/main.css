@@ -6,57 +6,28 @@ body {
     background-color: darkslategray;
 }
 
-.main-layout {
+/* .main-layout {
     display: grid;
-    grid-template-columns: 1fr 1000px 1fr;
-}
+    grid-template-columns: 1fr 1100px 1fr;
+} */
 
 .main-layout > * {
     grid-column: 2;
 }
 
-.gallery-images {
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
-}
-
-img {
-    width: 100%;
-}
-
-button {
-    font-size: 1.25em;
-    padding-block: .5em;
-    padding-inline: 0.75em;
-    
-    border: 0;
-    border-radius: 0.8em;
-
-    color: whitesmoke;
-    cursor: pointer;
-
-    transition: 0.4s;
-}
-
-button:hover {
-    opacity: 0.5;
-}
-
 .editor-meme {
-    display: flex;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2em;
 }
 
 .canvas-container {
-    width: 30vw;
     border: 1px solid lightgray;
     background-color: white;
 }
 
 .editor-btn-container {
-    width: 500px;
     background-color:steelblue;
     padding: 30px;
     border-radius: 3em;

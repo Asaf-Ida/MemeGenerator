@@ -45,25 +45,6 @@ function createLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
-function _createImgs() {
-    gImgs = [
-        _createImg(['celeb', 'funny', 'stupid']),
-        _createImg(['dogs', 'cute']),
-        _createImg(['dogs', 'cute', 'babies', 'sleeping']),
-        _createImg(['cats', 'cute', 'sleeping']),
-        _createImg(['babies', 'angry']),
-        _createImg(['celeb', 'funny'])
-    ]
-}
-
-function _createImg(keywords) {
-    return {
-        id: ++gIdImg,
-        url: 'img/' + gIdImg + '.jpg',
-        keywords
-    }
-}
-
 function getImg(imgId) {
     return gImgs.find(img => img.id === imgId)
 }
@@ -155,4 +136,37 @@ function checkSelectLine(offsetX, offsetY) {
                 gMeme.selectedLineIdx = line.id
             }
     })
+}
+
+// Service functions
+function _createImgs() {
+    gImgs = [
+        _createImg(['celeb', 'funny', 'stupid']),
+        _createImg(['dogs', 'cute']),
+        _createImg(['dogs', 'cute', 'babies', 'sleeping']),
+        _createImg(['cats', 'cute', 'sleeping']),
+        _createImg(['babies', 'angry']),
+        _createImg(['celeb', 'funny']), 
+        _createImg(['baby', 'funny', 'cute']), 
+        _createImg(['crazy', 'funny', 'movie']), 
+        _createImg(['baby', 'funny',]), 
+        _createImg(['celeb', 'funny']), 
+        _createImg(['movie', 'fight']), 
+        _createImg(['celeb']), 
+        _createImg(['celeb', 'movie']), 
+        _createImg(['crazy', 'movie']), 
+        _createImg(['movie']), 
+        _createImg(['movie', 'funny']), 
+        _createImg(['crazy', 'angry', 'celeb']), 
+        _createImg(['cartoon', 'movie']), 
+        _createImg(['cute', 'king', 'dog']), 
+    ]
+}
+
+function _createImg(keywords) {
+    return {
+        id: ++gIdImg,
+        url: 'img/' + gIdImg + '.jpg',
+        keywords
+    }
 }
