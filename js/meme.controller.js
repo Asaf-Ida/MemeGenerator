@@ -18,8 +18,6 @@ function resetMeme() {
 
 function renderMeme() {
     const meme = getMeme()
-    const currLine = meme.lines[meme.selectedLineIdx]
-    renderEditorDisplay(currLine)
 
     const memeImg = getImg(meme.selectedImgId)
     const elImg = new Image()
@@ -30,13 +28,21 @@ function renderMeme() {
 
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
-        for (var i = 0; i < meme.lines.length; i++) {
-            const memeLine = getLine(i)
-            renderMemeText(memeLine)
-        }
-        drawFrame(currLine)
+        renderMemeLines()
     }
+}
+
+function renderMemeLines() {
+    const meme = getMeme()
+    const currLine = meme.lines[meme.selectedLineIdx]
+    renderEditorDisplay(currLine)
+
+    for (var i = 0; i < meme.lines.length; i++) {
+        const memeLine = getLine(i)
+        renderMemeText(memeLine)
+    }
+
+    drawFrame(currLine)
 }
 
 function drawFrame(currLine) {
@@ -197,12 +203,8 @@ function onRemoveLine() {
     renderMeme()
 }
 
-
-// to be continued...
 function onSelectLine(ev) {
     const { offsetX, offsetY } = ev
-    console.log(offsetX)
-    console.log(offsetY)
 
     checkSelectLine(offsetX, offsetY)
     renderMeme()

@@ -1,11 +1,8 @@
 'use strict'
 
 let gIdImg = 0
-
 let gImgs
-
 let gIdLine
-
 let gMeme
 
 _createImgs()
@@ -153,7 +150,8 @@ function updateMemeSize(selectedLineIdx, originX, originY, lineWidth, lineHeight
 
 function checkSelectLine(offsetX, offsetY) {
     gMeme.lines.forEach(line => {
-        if (offsetX > line.size.originX && offsetX < line.size.lineWidth && offsetY > line.size.originY && offsetY < line.size.lineHeight) {
+        if (offsetX > line.size.originX && offsetX < (line.size.originX + line.size.lineWidth) && 
+        offsetY > line.size.originY && offsetY < (line.size.originY + line.size.lineHeight)) {
                 gMeme.selectedLineIdx = line.id
             }
     })
