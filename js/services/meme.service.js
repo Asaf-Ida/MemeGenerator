@@ -11,7 +11,7 @@ function createDefaultMeme() {
     gIdLine = 0
 
     gMeme = {
-        selectedImgId: 1,
+        selectedImgId: null,
         selectedLineIdx: 0,
         lines: [
             {

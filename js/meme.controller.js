@@ -3,7 +3,7 @@
 let gElCanvas
 let gCtx
 
-function onInit() {   
+function onInit() {
     gElCanvas = document.querySelector('.editor-meme canvas')
     gCtx = gElCanvas.getContext('2d')
 
@@ -208,4 +208,24 @@ function onSelectLine(ev) {
 
     checkSelectLine(offsetX, offsetY)
     renderMeme()
+}
+
+function onRandomMeme() {
+    //clearCanvas()
+    const meme = getMeme()
+    const imgs = getImgs()
+    const selectRandImg = getRandomIntInclusive(1, imgs.length)
+
+    if (!meme.selectedImgId) {
+        toggleDisplay()
+    }
+    createDefaultMeme()
+    
+    setStrokeColor(0, getRandomColor())
+    setFillColor(0, getRandomColor())
+    setSelectedImage(selectRandImg)
+}
+
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
 }

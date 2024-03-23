@@ -3,6 +3,8 @@
 renderGallery()
 
 function renderGallery() {
+    resetMeme()
+
     const imgs = getImgs()
     let imgsStr = ''
 
@@ -14,7 +16,6 @@ function renderGallery() {
 }
 
 function onImgSelect(imgSelected) {
-    resetMeme()
     toggleDisplay()
     
     const selectedImgId = imgSelected.dataset.id
@@ -30,6 +31,8 @@ function toggleDisplay() {
 }
 
 function onDisplayGallery() {
+    resetMeme()
+
     const elGallery = document.querySelector('.gallery-images')
     if (elGallery.classList.contains('hidden')) toggleDisplay()
 }
