@@ -138,6 +138,11 @@ function checkSelectLine(offsetX, offsetY) {
     })
 }
 
+function getMemes() {
+    const memes = loadFromStorage(MEMES_DB)
+    return memes
+}
+
 function saveMeme(meme) {
     gMemes.push(meme)
     _saveMemes()

@@ -231,7 +231,10 @@ function onRandomMeme() {
 // }
 
 function onDisplaySavedMeme() {
-    console.log('hi')
+    displaySavedMemes()
+
+    const memes = getMemes()
+    console.log(memes)
 }
 
 function onSaveMeme() {
