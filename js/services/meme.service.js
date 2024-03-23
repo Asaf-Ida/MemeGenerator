@@ -1,9 +1,11 @@
 'use strict'
 
+let MEMES_DB = 'memes_DB'
 let gIdImg = 0
 let gImgs
 let gIdLine
 let gMeme
+let gMemes = []
 
 _createImgs()
 
@@ -22,7 +24,6 @@ function createDefaultMeme() {
                 fillColor: 'white',
                 fontStyle: 'Impact',
                 txtAlign: 'center',
-                // positionX: 140,
                 positionY: 50
             }
         ]
@@ -38,7 +39,6 @@ function createLine() {
         fillColor: 'white',
         fontStyle: 'Impact',
         txtAlign: 'center',
-        // positionX: 140,
         positionY: 50 + (70 * (gIdLine - 1))
     }
     gMeme.lines.push(line)
@@ -138,6 +138,11 @@ function checkSelectLine(offsetX, offsetY) {
     })
 }
 
+function saveMeme(meme) {
+    gMemes.push(meme)
+    _saveMemes()
+}
+
 // Service functions
 function _createImgs() {
     gImgs = [
@@ -169,4 +174,8 @@ function _createImg(keywords) {
         url: 'img/' + gIdImg + '.jpg',
         keywords
     }
+}
+
+function _saveMemes() {
+    saveToStorage(MEMES_DB, gMemes)
 }

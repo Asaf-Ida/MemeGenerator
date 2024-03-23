@@ -1,8 +1,8 @@
-/* .gallery-images {
+.gallery-images {
     display: grid;
     gap: 25px;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
-} */
+}
 
 img {
     width: 100%;

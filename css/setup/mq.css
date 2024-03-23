@@ -39,6 +39,10 @@
         font-size: 1.5em;
     }
 
+    .editor-meme {
+        margin-block-end: 6em;
+    }
+
     .editor-meme .canvas-container {
         margin-block-end: 2em;
     }

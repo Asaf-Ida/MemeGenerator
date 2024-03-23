@@ -226,6 +226,21 @@ function onRandomMeme() {
     setSelectedImage(selectRandImg)
 }
 
-function clearCanvas() {
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+// function clearCanvas() {
+//     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+// }
+
+function onDisplaySavedMeme() {
+    console.log('hi')
+}
+
+function onSaveMeme() {
+    const meme = getMeme()
+    saveMeme(meme)
+
+    document.body.classList.toggle('msg-open')
+
+    setTimeout(() => {
+        document.body.classList.toggle('msg-open')
+    }, 1500);
 }

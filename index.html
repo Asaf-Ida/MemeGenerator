@@ -16,7 +16,7 @@
         <div class="main-nav">
             <ul class="main-nav-list">
                 <li><a href="#" onclick="onDisplayGallery()">Gallery</a></li>
-                <li><a href="#">Saved</a></li>
+                <li><a href="#" onclick="onDisplaySavedMeme()">Saved</a></li>
                 <li><a href="#" onclick="onRandomMeme()">Randomize</a></li>
             </ul>
         </div>
@@ -61,10 +61,10 @@
             </div>
 
             <div class="expand-links">
-                <button title="Save Meme" onclick="onSaveMeme(this)">
+                <button title="Save Meme" onclick="onSaveMeme()">
                     <i class="fa-solid fa-download"></i><span class="item-label">Save</span>
                 </button>
-                <button title="Share Meme" onclick="onShareMeme(this)">
+                <button title="Share Meme" onclick="onShareMeme()">
                     <i class="fa-solid fa-share"></i><span class="item-label">Share</span>
                 </button>
                 <button title="Download Meme">
@@ -74,8 +74,11 @@
             </div>
         </div>
     </section>
+
+    <div class="save-msg">meme saved successfully</div>
     
     <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/gallery.controller.js"></script>
