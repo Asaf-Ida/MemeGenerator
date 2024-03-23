@@ -3,9 +3,7 @@
 let gElCanvas
 let gCtx
 
-function onInit() {
-    resetMeme()
-
+function onInit() {   
     gElCanvas = document.querySelector('.editor-meme canvas')
     gCtx = gElCanvas.getContext('2d')
 
