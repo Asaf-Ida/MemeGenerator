@@ -6,20 +6,13 @@ body {
     background-color: darkslategray;
 }
 
-/* .main-layout {
+.main-layout {
     display: grid;
     grid-template-columns: 1fr 1100px 1fr;
-} */
+}
 
 .main-layout > * {
     grid-column: 2;
-}
-
-.editor-meme {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
 }
 
 .canvas-container {

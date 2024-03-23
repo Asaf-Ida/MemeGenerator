@@ -4,7 +4,7 @@
         display: grid;
         grid-template-columns: 
         minmax(20px, 1fr)
-        minmax(300px, 500px)
+        minmax(380px, 460px)
         minmax(20px, 1fr);
     }
 
@@ -38,6 +38,10 @@
     .main-nav-list a {
         font-size: 1.5em;
     }
+
+    .editor-meme .canvas-container {
+        margin-block-end: 2em;
+    }
 }
 
 /* MEDIUM */
@@ -56,9 +60,43 @@
         grid-template-columns: repeat(2, minmax(200px, 1fr));
     }
 
+    .header-content {
+        margin-block-end: 3em;
+    }
+
     .main-nav-list {
         display: flex;
         flex-direction: column;
+    }
+
+    .editor-meme {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns:
+        minmax(auto, 360px) 
+        minmax(auto, 360px);
+        gap: 1em;
+    }
+
+    .editor-btn-container button {
+        height: 2.5em;
+        width: 2.5em;
+    }
+
+    .editor-btn-container {
+        padding: 10px;
+    }
+
+    .editor-btn-container .line-text {    
+        font-size: 1em;
+    }
+    
+    .control-text select {
+        height: 2.5em;    
+    }
+
+    .expand-links .item-label {
+        display: none;
     }
 }
 
@@ -80,5 +118,46 @@
 
     .main-nav-list {
         flex-direction: row;
-    }    
+    }
+
+    .editor-meme {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns:
+        minmax(auto, 520px) 
+        minmax(auto, 520px);
+        gap: 2em;
+    }
+
+    .editor-btn-container button {
+        height: initial;
+        width: initial;
+    }
+
+    .control-lines button {
+        border-radius: 0.4em;
+        height: 2.5em;
+        flex-basis: 2.5em;
+    }
+
+    .control-text button {
+        width: 3em;
+        height: 3em;
+    }
+
+    .editor-btn-container {
+        padding: 30px;
+    }
+
+    .editor-btn-container .line-text {    
+        font-size: 1.5em;
+    }
+    
+    .control-text select {
+        height: 60px;    
+    }
+
+    .expand-links .item-label {
+        display: initial;
+    }
 }
