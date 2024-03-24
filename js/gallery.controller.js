@@ -11,8 +11,8 @@ function renderGallery() {
     imgsStr = imgs.map(img => 
         `<img class="pointer" src="${img.url}" data-id="${img.id}" onclick="onImgSelect(this)">`)
 
-    const elSection = document.querySelector('.gallery-images')
-    elSection.innerHTML = imgsStr.join('')
+    const elGallerySection = document.querySelector('.gallery-images')
+    elGallerySection.innerHTML = imgsStr.join('')
 }
 
 function onImgSelect(imgSelected) {

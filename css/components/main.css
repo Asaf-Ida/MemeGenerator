@@ -216,3 +216,18 @@ body {
 body.msg-open .save-msg {
     transform: translateY(0);
 }
+
+.img-btn-container {
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    
+    padding: 0.25em;
+    background-color: rgb(210, 31, 31);
+
+    font-size: 1.25em;
+}

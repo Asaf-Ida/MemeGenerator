@@ -2,6 +2,7 @@
 
 let gElCanvas
 let gCtx
+let gId = 0
 
 function onInit() {
     gElCanvas = document.querySelector('.editor-meme canvas')
@@ -211,13 +212,12 @@ function onSelectLine(ev) {
 }
 
 function onRandomMeme() {
-    //clearCanvas()
-    const meme = getMeme()
     const imgs = getImgs()
     const selectRandImg = getRandomIntInclusive(1, imgs.length)
 
-    if (!meme.selectedImgId) {
-        toggleDisplay()
+    const elEditor = document.querySelector('.editor-meme')
+    if (elEditor.classList.contains('hidden')) {
+        displayEditor()
     }
     createDefaultMeme()
     
@@ -230,15 +230,10 @@ function onRandomMeme() {
 //     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
 // }
 
-function onDisplaySavedMeme() {
-    displaySavedMemes()
-
-    const memes = getMemes()
-    console.log(memes)
-}
-
 function onSaveMeme() {
     const meme = getMeme()
+    meme.id = gId++
+    meme.dataUrl = gElCanvas.toDataURL()
     saveMeme(meme)
 
     document.body.classList.toggle('msg-open')
@@ -246,4 +241,30 @@ function onSaveMeme() {
     setTimeout(() => {
         document.body.classList.toggle('msg-open')
     }, 1500);
+}
+
+function onDisplaySavedMeme() {
+    displaySavedMemes()
+
+    const memes = getMemes()
+    if (!memes) return
+    let memeStr = ''
+
+    memeStr = memes.map(meme => 
+        `<div class="img-btn-container"><img class="pointer" src="${meme.dataUrl}" onclick="onSelectSavedMeme(${meme.id})">
+        <button class="delete-btn" onclick="onDeleteMeme(${meme.id})">Delete</button></div>`)
+
+    const elSavedMemes = document.querySelector('.saved-memes-container')
+    elSavedMemes.innerHTML = memeStr.join('')
+}
+
+function onDeleteMeme(memeId) {
+    deleteSavedMeme(memeId)
+    onDisplaySavedMeme()
+}
+
+function onSelectSavedMeme(memeId) {
+    displayEditor()
+    setSavedMeme(memeId)
+    renderMeme()
 }

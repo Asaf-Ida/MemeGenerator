@@ -148,6 +148,18 @@ function saveMeme(meme) {
     _saveMemes()
 }
 
+function deleteSavedMeme(memeId) {
+    const memeIdx = gMemes.findIndex(meme => meme.id === memeId)
+    gMemes.splice(memeIdx, 1)
+
+    _saveMemes()
+}
+
+function setSavedMeme(memeId) {
+    const selectedMeme = gMemes.find(meme => meme.id === memeId)
+    gMeme = structuredClone(selectedMeme)
+}
+
 // Service functions
 function _createImgs() {
     gImgs = [
